@@ -1,10 +1,8 @@
-from math import ceil
-import random
 import time
 
 
 def binary_search(arr, n, left, right):
-    mid = ceil((left + right) / 2)
+    mid = (left + right) // 2
 
     if(arr[mid] == n):
         return mid

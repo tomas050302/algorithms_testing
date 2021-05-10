@@ -1,5 +1,4 @@
 import time
-import random
 
 
 def bubble_sort_optimized(arr):
