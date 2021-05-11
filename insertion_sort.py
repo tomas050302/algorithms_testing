@@ -17,7 +17,7 @@ def insertion_sort(arr, i=1):
     return insertion_sort(arr, i+1)
 
 
-print('--- Best Case ---')  # O(n)
+print('\n\n--- Best Case ---\n')  # O(n)
 arr = []
 
 for i in range(500):
@@ -25,7 +25,7 @@ for i in range(500):
 
 print(insertion_sort(arr))
 
-print('--- Average Case ---')
+print('\n\n--- Average Case ---\n')  # O(n^2)
 arr = []
 
 for i in range(500):
@@ -33,7 +33,7 @@ for i in range(500):
 
 print(insertion_sort(arr))
 
-print('--- Worst Case ---')  # O(n^2)
+print('\n\n--- Worst Case ---\n')  # O(n^2)
 
 arr = []
 for i in range(500):

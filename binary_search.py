@@ -32,14 +32,14 @@ for i in range(length):
 n = int(input('Introduza o valor a procurar: '))
 
 start = time.time()
-index = binary_search(arr, n, 0, len(arr))
+index = binary_search(arr, n, 0, len(arr))  # O(log(n))
 end = time.time()
 
 print(f'O valor encontra-se na {index} posição.')
 print(f'A procura binária demorou {end-start} segundos')
 
 start = time.time()
-index = sequencial_search(arr, n)
+index = sequencial_search(arr, n)  # O(n)
 end = time.time()
 
 print(f'O valor encontra-se na {index} posição.')

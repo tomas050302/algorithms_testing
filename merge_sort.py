@@ -1,3 +1,6 @@
+import random
+
+
 def merge(arr1, arr2):
     i = 0
     j = 0
@@ -34,5 +37,26 @@ def sort(arr):
     return merge(left, right)
 
 
-arr = [2, 5, 8, 9, 1, 2, 3, 5, 6, 2, 3, 3]
+print('\n\n--- Best Case ---\n')  # O(n log(n))
+
+arr = []
+for i in range(500):
+    arr.append(i)
+
+print(sort(arr))
+
+print('\n\n--- Averege Case ---\n')  # O(n log(n)
+
+arr = []
+for i in range(500):
+    arr.append(random.randint(1, 500))
+
+print(sort(arr))
+
+print('\n\n--- Worst Case ---\n')  # O(n log(n)
+
+arr = []
+for i in range(500):
+    arr.append(500-i)
+
 print(sort(arr))
