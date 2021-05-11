@@ -34,5 +34,5 @@ def sort(arr):
     return merge(left, right)
 
 
-arr = [2, 5, 8, 9, 1, 2, 3, 5, 6, 2, 3]
+arr = [2, 5, 8, 9, 1, 2, 3, 5, 6, 2, 3, 3]
 print(sort(arr))
