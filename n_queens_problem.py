@@ -1,7 +1,8 @@
 n_of_queens = 8
+board = []
 
 
-def is_valid_column(board, j):
+def is_valid_column(j):
     for i in range(n_of_queens):
         if(board[i][j] == 1):
             return False
@@ -9,7 +10,7 @@ def is_valid_column(board, j):
     return True
 
 
-def is_valid_row(board, i):
+def is_valid_row(i):
     for j in range(n_of_queens):
         if(board[i][j] == 1):
             return False
@@ -17,37 +18,38 @@ def is_valid_row(board, i):
     return True
 
 
-def is_valid_diagonal(board, i, j):
-    if(i > j):
-        for x in range(n_of_queens-i):
-            if(board[i+x][j+x] == 1):
-                return False
-    else:
-        for x in range(n_of_queens-j):
-            if(board[i+x][j+x] == 1):
-                return False
+def is_valid_diagonal(i, j):
+    for i, j in zip(range(i, -1, -1), range(j, -1, -1)):
+        if board[i][j] == 1:
+            return False
+
+    for i, j in zip(range(i, n_of_queens, 1), range(j, -1, -1)):
+        if board[i][j] == 1:
+            return False
 
     return True
 
 
-def is_valid(board, i, j):
-    return is_valid_column(board, j) and is_valid_row(board, i) and is_valid_diagonal(board, i, j)
+def is_valid(i, j):
+    return is_valid_column(j) and is_valid_row(i) and is_valid_diagonal(i, j)
 
 
-def solve(board, i, j, placed):
-    if(placed == n_of_queens):
+def solve(j=0):
+    if(j == n_of_queens):
         return board
 
     for k in range(n_of_queens):
-        print(board)
-        if(is_valid(board, i, k)):
-            board[i][k] = 1
-            return solve(board, i+1, j, placed+1)
-        board[i][k] = 0
+        if(is_valid(k, j)):
+            board[k][j] = 1
+            if(solve(j+1)):
+                return True
+
+            board[k][j] = 0
+
+    return False
 
 
 def start():
-    board = []
     for i in range(n_of_queens):
         temp = []
         for j in range(n_of_queens):
@@ -55,7 +57,9 @@ def start():
 
         board.append(temp)
 
-    return solve(board, i, j, 0)
+    return solve()
 
 
-print(start())
+start()
+for line in board:
+    print(line)
